@@ -8,7 +8,7 @@
     'author': 'Casta',
     'maintainer': 'Casta',
     'website': 'https://www.google.com',
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'depends': ['base', 'web', 'mail', 'report_xlsx', 'contacts', 'fleet', 'sale', 'board', ],
     'css': ['static/src/css/student.css'],
     'js': ['static/src/js/stu.js'],
