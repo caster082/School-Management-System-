@@ -1,0 +1,519 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* TestingSchool
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-27 03:09+0000\n"
+"PO-Revision-Date: 2022-06-27 03:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: TestingSchool
+#: model:ir.actions.report,print_report_name:TestingSchool.student_profile_card_xlsx
+msgid "'Student Card Excel'"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.actions.report,print_report_name:TestingSchool.student_profile_card_report
+msgid "'Student Card'"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "<span class=\"o_stat_text\"> Books</span>"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__active
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Active"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__age
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Age"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Archived"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_kanban_view
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Avatar"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__book_count
+msgid "Book"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__book_name
+msgid "Book Name"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.actions.act_window,name:TestingSchool.book_action
+#: model:ir.model,name:TestingSchool.model_sch_book
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__product_id
+#: model_terms:ir.ui.view,arch_db:TestingSchool.book_data_tree_view
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+#: model:res.groups,name:TestingSchool.group_school_books
+msgid "Books"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__state__cancel
+msgid "Canceled"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__Category
+msgid "Category"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.module.category,description:TestingSchool.module_category_school
+msgid "Category For MIT School"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Confirm"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__state__confirm
+msgid "Confirmed"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.actions.act_window,help:TestingSchool.book_action
+msgid "Create a new Books"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.actions.act_window,help:TestingSchool.student_action
+msgid "Create a new Student"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__create_uid
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__create_date
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_report_testingschool_student_data_pdf_template_excel__display_name
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__display_name
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__state__done
+msgid "Done"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__state__draft
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Draft"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__email
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Email"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_book__Category__english
+msgid "English"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Excel Print"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__gender__female
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Female"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__gender
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Gender"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Group By"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_report_testingschool_student_data_pdf_template_excel__id
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__id
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__id
+msgid "ID"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_needaction
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__image
+msgid "Image"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_report_testingschool_student_data_pdf_template_excel____last_update
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book____last_update
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__write_uid
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__write_date
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Leads"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.ui.menu,name:TestingSchool.school_Book_root
+msgid "Library"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.module.category,name:TestingSchool.module_category_school
+#: model:ir.ui.menu,name:TestingSchool.School_root
+msgid "MIT School"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__gender__male
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Male"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Mark as Done"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_book__Category__math
+msgid "Math"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_book__Category__myanmar
+msgid "Myanmar"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__student_name
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Name"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields.selection,name:TestingSchool.selection__sch_record__gender__other
+msgid "Other"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Phone"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__Qty
+msgid "Quantity"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__notes
+msgid "Registration Note"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__responsible_id
+msgid "Responsible Person"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_search
+msgid "Search Patients"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__state
+msgid "Status"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.ui.menu,name:TestingSchool.school_student
+msgid "Student"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__books
+msgid "Student Books"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.actions.report,name:TestingSchool.student_profile_card_report
+msgid "Student Card"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.actions.report,name:TestingSchool.student_profile_card_xlsx
+msgid "Student Card Excel"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_pdf_template_report
+msgid "Student Information"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Student Information -"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model,name:TestingSchool.model_sch_record
+msgid "Student Record"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.ui.menu,name:TestingSchool.school_student_root
+msgid "Student Records"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "Student Technical Info"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.constraint,message:TestingSchool.constraint_sch_record_unique_name
+msgid "Student already Exist!!!"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.actions.act_window,name:TestingSchool.student_action
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_tree_view
+#: model:res.groups,name:TestingSchool.group_school_student
+msgid "Students"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__student_id
+msgid "Students ID"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_book__Subject
+msgid "Subject"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,help:TestingSchool.field_sch_record__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: TestingSchool
+#: model_terms:ir.ui.view,arch_db:TestingSchool.student_data_form
+msgid "canceled"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model.fields,field_description:TestingSchool.field_sch_record__birth_date
+msgid "dob"
+msgstr ""
+
+#. module: TestingSchool
+#: model:ir.model,name:TestingSchool.model_report_testingschool_student_data_pdf_template_excel
+msgid "report.testingschool.student_data_pdf_template_excel"
+msgstr ""

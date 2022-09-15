@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="stu_data" name="MIT">
+        <t t-call="website.layout">
+                <link rel='stylesheet' href="/TestingSchool/static/src/css/your_file.css"/>
+                <script type="text/javascript" src="/TestingSchool/static/src/js/stu.js"/>
+
+
+             <style>
+                .btn {
+                background-color: #7C7BAD;
+                border: none;
+                color: white;
+                #padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                }
+                .Row {
+                display: table;
+                width: 50%; /*Optional*/
+                table-layout: fixed; /*Optional*/
+
+                }
+                .Column {
+                display: table-cell;
+
+                }
+                .required:after {
+                content:" *";
+                color: red;
+                }
+            </style>
+            <div id="wrap" class="oe_structure oe_empty">
+                <form action="/savestu/" method="post" class="s_website_form container-fluid mt32 o_fake_not_editable"
+                      enctype="multipart/form-data" data-name="Form Builder" data-model_name="sch.record"
+                      data-success_page="">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <t t-if="res">
+                        <input type="hidden" name="id" t-att-value="res.id"/>
+                    </t>
+
+
+                    <div class="container rounded bg-white mt-5 mb-5">
+                        <div class="row">
+                            <div class="col-md-4 border-right">
+                                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                    <t t-if="res">
+                                        <input accept=".png,.jpg,.jpeg" id="file" name="image"
+                                               onchange="loadFile(event)" type="file" style="display:none"/>
+                                        <img aria-describedby="tooltip366954" class="img img-fluid rounded-circle mt-5" width="300px" data-original-title=""
+                                             id="output" onclick="CF();"
+                                             t-attf-src="data:image/png;base64,{{res.image}}" title="" style="margin: left;"/>
+                                    </t>
+                                    <t t-if="not res">
+                                        <input accept=".png,.jpg,.jpeg" id="file" name="image"
+                                               onchange="loadFile(event)" required="" type="file" style="display:none"/>
+                                        <img aria-describedby="tooltip366954" class="img img-fluid rounded-circle mt-5" width="150px" data-original-title=""
+                                             id="output" onclick="CF();"
+                                             src="/TestingSchool/static/description/usericon.jpg" title="" style="margin: left;"/>
+                                    </t>
+<!--                                    <t t-if="res">-->
+<!--                                        <span>-->
+<!--                                        <div class="font-weight-bold" id="snr"></div>-->
+<!--                                        </span>-->
+<!--                                    <span class="text-black-50">edogaru@mail.com.my</span>-->
+<!--                                    <span> </span>-->
+<!--                                    </t>-->
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-8 border-right">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">MIT Student Profile </h4>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <label class="labels required" for="student_name"> Name </label>
+                                    <t t-if="res">
+                                        <input type="text" t-att-value="res.student_name" class="form-control o_website_form_input" name="student_name" id="sn"/>
+                                    </t>
+                                    <t t-if="not res">
+                                        <input type="text" class="form-control o_website_form_input" name="student_name"  required=""
+                                               oninvalid="this.setCustomValidity('Insert Student Name Here')" oninput="this.setCustomValidity('')"/>
+                                    </t>
+                                </div>
+<!--                                Student Name-->
+
+                                <div class="col-md-8">
+                                <label class="col-form-label o_fake_editable" for="birth_date"> Birthdate </label>
+                                <t t-if="res">
+                                    <input type="date" t-att-value="res.birth_date" id="birth_date"
+                                           class="form-control o_website_form_input" name="birth_date" onchange="check_birth_date()"/>
+
+                                </t>
+                                <t t-if="not res">
+                                    <input type="date" class="form-control o_website_form_input" name="birth_date"  id="birth_date" onchange="check_birth_date()" />
+
+                                </t>
+                                </div>
+                                <!--                                Student BOD-->
+
+
+                                <div class="col-md-8">
+                                <label class="labels" for="notes"> Address </label>
+                                <t t-if="res">
+                                    <input type="text" t-att-value="res.notes" class="form-control o_website_form_input"
+                                           name="notes"/>
+                                </t>
+                                <t t-if="not res">
+                                    <input type="text" class="form-control o_website_form_input" name="notes"/>
+                                </t>
+                                </div>
+                                <!--                                Student Address-->
+
+
+                                <div class="col-md-8">
+                                <label class="labels" for="mobile"> Phone </label>
+                                <t t-if="res">
+                                    <input type="number" t-att-value="res.mobile"
+                                           class="form-control o_website_form_input" name="mobile"/>
+                                </t>
+                                <t t-if="not res">
+                                    <input type="number" class="form-control o_website_form_input" name="mobile"/>
+                                </t>
+                                </div>
+                                <!--                                Student Phone-->
+
+                                <div class="col-md-8">
+                                <label class="labels required " for="email"  > Email </label>
+                                 <t t-if="res">
+                                    <input type="text" t-att-value="res.email" class="form-control o_website_form_input required"
+                                           name="email" />
+                                </t>
+                                <t t-if="not res">
+                                    <input type="email" class="form-control o_website_form_input" name="email" required=""
+                                        oninvalid="this.setCustomValidity('Insert Email Here')" oninput="this.setCustomValidity('')" />
+                                </t>
+                                </div>
+                                <!--                                Student Email-->
+
+                                <div class="col-md-8">
+                                    <label class="labels" for="gender">  Gender </label>
+                                    <t t-if="not res">
+                                        <div class="Row">
+                                            <div class="Column">
+                                                <input type="radio" name="gender" value="male"/>
+                                                <span style="font-family:Times New Roman; font-size:15px;">Male</span>
+                                            </div>
+                                            <div class="Column">
+                                                <input type="radio" name="gender" value="female"/>
+                                                <span style="font-family:Times New Roman; font-size:15px;">Female</span>
+                                            </div>
+                                            <div class="Column">
+                                                <!--<input type="radio" name="x_gender" value="Female" />-->
+                                                <!--<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      -->
+                                            </div>
+                                        </div>
+                                        <div class="float-right">
+
+                                        </div>
+                                    </t>
+                                    <t t-if="res">
+                                        <div class="Row">
+                                            <t t-if ="res.gender is False">
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="male"/>
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Male</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="female"/>
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Female</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <!--<input type="radio" name="x_gender" value="Female" />-->
+                                                    <!--<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      -->
+                                                </div>
+                                            </t>
+                                            <t t-if ="res.gender == 'male'">
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="male" checked="1"/>
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Male</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="female"/>
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Female</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <!--<input type="radio" name="x_gender" value="Female" />-->
+                                                    <!--<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      -->
+                                                </div>
+                                            </t>
+                                            <t t-if ="res.gender == 'female'">
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="male" />
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Male</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <input type="radio" name="gender"  value="female" checked="1"/>
+                                                    <span style="font-family:Times New Roman; font-size:15px;">Female</span>
+                                                </div>
+                                                <div class="Column">
+                                                    <!--<input type="radio" name="x_gender" value="Female" />-->
+                                                    <!--<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      -->
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </t>
+
+                                </div>
+<!--                                Gender-->
+
+
+                                <div class="col-md-8">
+                                    <label class="col-form-label" for="attachment">Attachment</label>
+                                    <t t-if="not res">
+                                        <div class="row attachment_margin">
+                                            <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"
+                                                   class="form-control o_website_form_input" id="attachment"
+                                                   name="attachment" onchange="namecombiod1()"/>
+                                            <input id="attachment_filename" name="attachment_name" type="hidden"/>
+                                        </div>
+                                        <div class="row attachment_margin">
+                                            <a id="document1" onclick="function odoc1popup(){
+                                              document.getElementById('divmodal').style.display='block';
+                                              var img3 = document.createElement('img');
+                                              img3.style.width = '30%';
+                                              img3.style.height = '30%';
+                                              img3.src = document.getElementById('attachment').src;
+                                              document.getElementById('divimagemodal').appendChild(img3);
+                                              }; odoc1popup();">
+                                                <span id="show_attachment"/>
+                                            </a>
+                                            <a href="" id="pdfpath1" target="_blank">
+                                                <span id="pdf_name1"/>
+                                            </a>
+                                        </div>
+                                    </t>
+                                    <t t-if="res">
+                                        <div class="row attachment_margin">
+                                            <t t-if="res.attachment">
+                                                <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"
+                                                       class="form-control o_website_form_input" id="attachment"
+                                                       name="attachment" onchange="namecombiod1()"
+                                                       t-att-value="res.attachment"/>
+                                            </t>
+                                            <t t-if="not res.attachment">
+                                                <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"
+                                                       class="form-control o_website_form_input" id="attachment"
+                                                       name="attachment" onchange="namecombiod1()"
+                                                       t-att-value="res.attachment"/>
+                                            </t>
+                                            <input id="attachment_filename" name="attachment_name" type="hidden"/>
+                                        </div>
+                                        <a id="document1" t-attf-src="data:image/png;base64,{{res.attachment}}"
+                                           t-attf-onclick="function myModal(){
+                                          document.getElementById('divmodal').style.display='block';
+                                          var img3 = document.createElement('img');
+                                          img3.style.width = '100%';
+                                          img3.style.height = '100%';
+                                          document.getElementById('divimagemodal').appendChild(img3);
+                                          }; myModal();">
+                                            <span id="show_attachment"/>
+                                        </a>
+                                        <a href="" id="pdfpath1" target="_blank">
+                                            <span id="pdf_name1"/>
+                                        </a>
+                                        <div class="row attachment_margin" id="hide_od1">
+                                            <!--                              Attachment Name Filter and conditions-->
+                                            <t t-if="res.attachment_name">
+                                                <t t-set="var" t-value="res.attachment_name"/>
+                                                <t t-set="fname" t-value="var.split('.')[-1].lower()"/>
+                                                <!--                                  PDF Condition-->
+                                                <t t-if="fname == 'pdf'">
+                                                    <span class="o_image" data-mimetype="application/pdf"/>
+                                                    <span id="show_nrc_front_name" class="filename_padding">
+                                                        <a t-attf-href="/web/content?model=sch.record&amp;field=attachment&amp;id={{res.id}}&amp;filename={{res.attachment_name}}"
+                                                           target="_blank">
+                                                            <t t-esc="res.attachment_name"/>
+                                                        </a>
+                                                    </span>
+                                                </t>
+
+                                                <!--                                 IF no PDF Condition-->
+                                                <t t-if="fname == 'pdf'">
+                                                    <a t-attf-onclick="function myModal(){
+                                          document.getElementByID('divmodal').style.display='block';
+                                          var img3 = document.createElement('img');
+                                          img3.style.width = '100%';
+                                          img3.style.height = '100%';
+                                          img3.src = 'data:image/png;base64,{{res.attachment}}';
+                                          document.getElementById('divimagemodal').appendChild(img3);
+                                          }; myModal();" t-attf-src="data:image/png;base64,{{res.attachment}}">
+                                                        <t t-esc="res.attachment_name"/>
+                                                    </a>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="mt-5 text-center">
+                                    <t t-if="res">
+                                        <a href="/mit" class="btn btn-primary profile-button">New</a>
+                                        <button class="btn btn-primary profile-button" data-original-title="" title=""
+                                                aria-describedby="tooltip246875">Update
+                                        </button>
+                                        <a t-attf-href="/deleteById?id={{res.id}}" class="btn btn-primary profile-button"
+                                           enctype="multipart/form-data" data-name="Form Builder"
+                                           data-model_name="sch.record" data-success_page="">Delete
+                                        </a>
+                                        <a href="/mitstulist" class="btn btn-primary profile-button">Lists</a>
+
+                                    </t>
+                                    <t t-if="not res">
+                                        <a href="/mit" class="btn btn-primary profile-button">New</a>
+                                        <button class="btn btn-primary profile-button" data-original-title="" title=""
+                                                aria-describedby="tooltip246875">Save
+                                        </button>
+                                        <a href="/mitstulist" class="btn btn-primary profile-button">Lists</a>
+                                    </t>
+                                </div>
+                            </div>
+<!--Attachment-->
+
+
+<!--&lt;!&ndash;Button Groups&ndash;&gt;-->
+<!--                            <div class="col-lg-2 col-md-3">-->
+<!--                                <div class="d-grid gap-2 d-md-flex justify-content-md-end btn-group-justified">-->
+<!--                                    <t t-if="res">-->
+<!--                                        <a href="/mit" class="btn btn-group me-md-2">New</a>-->
+<!--                                        <button class="btn btn-group me-md-2" data-original-title="" title=""-->
+<!--                                                aria-describedby="tooltip246875">Update-->
+<!--                                        </button>-->
+<!--                                        <a t-attf-href="/deleteById?id={{res.id}}" class="btn btn-group me-md-2"-->
+<!--                                           enctype="multipart/form-data" data-name="Form Builder"-->
+<!--                                           data-model_name="sch.record" data-success_page="">Delete-->
+<!--                                        </a>-->
+<!--                                        <a href="/mitstulist" class="btn btn-group btn-primary">Lists</a>-->
+
+<!--                                    </t>-->
+<!--                                    <t t-if="not res">-->
+<!--                                        <a href="/mit" class="btn btn-primary me-md-2">New</a>-->
+<!--                                        <button class="btn btn-primary me-md-2" data-original-title="" title=""-->
+<!--                                                aria-describedby="tooltip246875">Save-->
+<!--                                        </button>-->
+<!--                                        <a href="/mitstulist" class="btn btn-primary me-md-2">Lists</a>-->
+<!--                                    </t>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;Button Groups&ndash;&gt;-->
+
+
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="image">-->
+<!--                                    Student Profile-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                <t t-if="res">-->
+<!--                                    <input accept=".png,.jpg,.jpeg" id="file" name="image"-->
+<!--                                           onchange="loadFile(event)" type="file" style="display:none"/>-->
+<!--                                    <img aria-describedby="tooltip366954" class="img img-fluid" data-original-title=""-->
+<!--                                         id="output" onclick="CF();"-->
+<!--                                         t-attf-src="data:image/png;base64,{{res.image}}" title="" style="margin: left;"/>-->
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input accept=".png,.jpg,.jpeg" id="file" name="image"-->
+<!--                                           onchange="loadFile(event)" required="" type="file" style="display:none"/>-->
+<!--                                    <img aria-describedby="tooltip366954" class="img img-fluid" data-original-title=""-->
+<!--                                         id="output" onclick="CF();"-->
+<!--                                         src="/TestingSchool/static/description/usericon.jpg" title="" style="margin: left;"/>-->
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+
+
+
+
+
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable required " for="student_name">-->
+<!--                                    Name-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                <t t-if="res">-->
+<!--                                    <input type="text" t-att-value="res.student_name"-->
+<!--                                           class="form-control o_website_form_input" name="student_name" />-->
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="text" class="form-control o_website_form_input" name="student_name"  required=""-->
+<!--                                        oninvalid="this.setCustomValidity('Insert Student Name Here')" oninput="this.setCustomValidity('')"/>-->
+
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash;                                Student Name&ndash;&gt;-->
+
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="age"> Age </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+
+
+<!--                                <t t-if="res">-->
+<!--                                    <input type="number" t-att-value="res.age" class="form-control o_website_form_input"-->
+<!--                                           name="age" step="1"/>-->
+
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="number" class="form-control o_website_form_input" name="age"/>-->
+
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="notes">-->
+<!--                                    Contact-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+
+
+<!--                                <t t-if="res">-->
+<!--                                    <input type="text" t-att-value="res.notes" class="form-control o_website_form_input"-->
+<!--                                           name="notes"/>-->
+
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="text" class="form-control o_website_form_input" name="notes"/>-->
+
+<!--                                </t>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="birth_date"> Birthdate </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                <t t-if="res">-->
+<!--                                    <input type="date" t-att-value="res.birth_date" id="birth_date"-->
+<!--                                           class="form-control o_website_form_input" name="birth_date" onchange="check_birth_date()"/>-->
+
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="date" class="form-control o_website_form_input" name="birth_date"  id="birth_date" onchange="check_birth_date()" />-->
+
+<!--                                </t>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="mobile"> Phone </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+
+<!--                                <t t-if="res">-->
+<!--                                    <input type="number" t-att-value="res.mobile"-->
+<!--                                           class="form-control o_website_form_input" name="mobile"/>-->
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="number" class="form-control o_website_form_input" name="mobile"/>-->
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable required " for="email"  >  Mail </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                 <t t-if="res">-->
+<!--                                    <input type="text" t-att-value="res.email" class="form-control o_website_form_input required"-->
+<!--                                           name="email" />-->
+<!--                                </t>-->
+<!--                                <t t-if="not res">-->
+<!--                                    <input type="email" class="form-control o_website_form_input" name="email" required=""-->
+<!--                                        oninvalid="this.setCustomValidity('Insert Email Here')" oninput="this.setCustomValidity('')" />-->
+<!--                                </t>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label o_fake_editable" for="gender">  Gender </label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                <t t-if="not res">-->
+<!--                                    <div class="Row">-->
+<!--                                        <div class="Column">-->
+<!--                                            <input type="radio" name="gender" value="male"/>-->
+<!--                                            <span style="font-family:Times New Roman; font-size:15px;">Male</span>-->
+<!--                                        </div>-->
+<!--                                        <div class="Column">-->
+<!--                                            <input type="radio" name="gender" value="female"/>-->
+<!--                                            <span style="font-family:Times New Roman; font-size:15px;">Female</span>-->
+<!--                                        </div>-->
+<!--                                        <div class="Column">-->
+<!--                                            &lt;!&ndash;<input type="radio" name="x_gender" value="Female" />&ndash;&gt;-->
+<!--                                            &lt;!&ndash;<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      &ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="float-right">-->
+
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                                <t t-if="res">-->
+<!--                                    <div class="Row">-->
+<!--                                        <t t-if ="res.gender is False">-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="male"/>-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Male</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="female"/>-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Female</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                &lt;!&ndash;<input type="radio" name="x_gender" value="Female" />&ndash;&gt;-->
+<!--                                                &lt;!&ndash;<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      &ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                        <t t-if ="res.gender == 'male'">-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="male" checked="1"/>-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Male</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="female"/>-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Female</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                &lt;!&ndash;<input type="radio" name="x_gender" value="Female" />&ndash;&gt;-->
+<!--                                                &lt;!&ndash;<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      &ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                        <t t-if ="res.gender == 'female'">-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="male" />-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Male</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                <input type="radio" name="gender"  value="female" checked="1"/>-->
+<!--                                                <span style="font-family:Times New Roman; font-size:15px;">Female</span>-->
+<!--                                            </div>-->
+<!--                                            <div class="Column">-->
+<!--                                                &lt;!&ndash;<input type="radio" name="x_gender" value="Female" />&ndash;&gt;-->
+<!--                                                &lt;!&ndash;<span style="font-family:Times New Roman; font-size:15px;">Female</span>                      &ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </t>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        <div class="row form-group form-field">-->
+<!--                            <div class="col-lg-3 col-md-4">-->
+<!--                                <label class="col-form-label" for="attachment">Attachment</label>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-7 col-md-8">-->
+<!--                                <t t-if="not res">-->
+<!--                                    <div class="row attachment_margin">-->
+<!--                                        <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"-->
+<!--                                               class="form-control o_website_form_input" id="attachment"-->
+<!--                                               name="attachment" onchange="namecombiod1()"/>-->
+<!--                                        <input id="attachment_filename" name="attachment_name" type="hidden"/>-->
+<!--                                    </div>-->
+<!--                                    <div class="row attachment_margin">-->
+<!--                                        <a id="document1" onclick="function odoc1popup(){-->
+<!--                                          document.getElementById('divmodal').style.display='block';-->
+<!--                                          var img3 = document.createElement('img');-->
+<!--                                          img3.style.width = '30%';-->
+<!--                                          img3.style.height = '30%';-->
+<!--                                          img3.src = document.getElementById('attachment').src;-->
+<!--                                          document.getElementById('divimagemodal').appendChild(img3);-->
+<!--                                          }; odoc1popup();">-->
+<!--                                            <span id="show_attachment"/>-->
+<!--                                        </a>-->
+<!--                                        <a href="" id="pdfpath1" target="_blank">-->
+<!--                                            <span id="pdf_name1"/>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                                <t t-if="res">-->
+<!--                                    <div class="row attachment_margin">-->
+<!--                                        <t t-if="res.attachment">-->
+<!--                                            <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"-->
+<!--                                                   class="form-control o_website_form_input" id="attachment"-->
+<!--                                                   name="attachment" onchange="namecombiod1()"-->
+<!--                                                   t-att-value="res.attachment"/>-->
+<!--                                        </t>-->
+<!--                                        <t t-if="not res.attachment">-->
+<!--                                            <input accept=".png,.jpg,.jpeg,.pdf,.zip" type="file"-->
+<!--                                                   class="form-control o_website_form_input" id="attachment"-->
+<!--                                                   name="attachment" onchange="namecombiod1()"-->
+<!--                                                   t-att-value="res.attachment"/>-->
+<!--                                        </t>-->
+<!--                                        <input id="attachment_filename" name="attachment_name" type="hidden"/>-->
+<!--                                    </div>-->
+<!--                                    <a id="document1" t-attf-src="data:image/png;base64,{{res.attachment}}"-->
+<!--                                       t-attf-onclick="function myModal(){-->
+<!--                                      document.getElementById('divmodal').style.display='block';-->
+<!--                                      var img3 = document.createElement('img');-->
+<!--                                      img3.style.width = '100%';-->
+<!--                                      img3.style.height = '100%';-->
+<!--                                      document.getElementById('divimagemodal').appendChild(img3);-->
+<!--                                      }; myModal();">-->
+<!--                                        <span id="show_attachment"/>-->
+<!--                                    </a>-->
+<!--                                    <a href="" id="pdfpath1" target="_blank">-->
+<!--                                        <span id="pdf_name1"/>-->
+<!--                                    </a>-->
+<!--                                    <div class="row attachment_margin" id="hide_od1">-->
+<!--                                        &lt;!&ndash;                              Attachment Name Filter and conditions&ndash;&gt;-->
+<!--                                        <t t-if="res.attachment_name">-->
+<!--                                            <t t-set="var" t-value="res.attachment_name"/>-->
+<!--                                            <t t-set="fname" t-value="var.split('.')[-1].lower()"/>-->
+<!--                                            &lt;!&ndash;                                  PDF Condition&ndash;&gt;-->
+<!--                                            <t t-if="fname == 'pdf'">-->
+<!--                                                <span class="o_image" data-mimetype="application/pdf"/>-->
+<!--                                                <span id="show_nrc_front_name" class="filename_padding">-->
+<!--                                                    <a t-attf-href="/web/content?model=sch.record&amp;field=attachment&amp;id={{res.id}}&amp;filename={{res.attachment_name}}"-->
+<!--                                                       target="_blank">-->
+<!--                                                        <t t-esc="res.attachment_name"/>-->
+<!--                                                    </a>-->
+<!--                                                </span>-->
+<!--                                            </t>-->
+
+<!--                                            &lt;!&ndash;                                 IF no PDF Condition&ndash;&gt;-->
+<!--                                            <t t-if="fname == 'pdf'">-->
+<!--                                                <a t-attf-onclick="function myModal(){-->
+<!--                                      document.getElementByID('divmodal').style.display='block';-->
+<!--                                      var img3 = document.createElement('img');-->
+<!--                                      img3.style.width = '100%';-->
+<!--                                      img3.style.height = '100%';-->
+<!--                                      img3.src = 'data:image/png;base64,{{res.attachment}}';-->
+<!--                                      document.getElementById('divimagemodal').appendChild(img3);-->
+<!--                                      }; myModal();" t-attf-src="data:image/png;base64,{{res.attachment}}">-->
+<!--                                                    <t t-esc="res.attachment_name"/>-->
+<!--                                                </a>-->
+<!--                                            </t>-->
+<!--                                        </t>-->
+<!--                                    </div>-->
+<!--                                </t>-->
+<!--                            </div>-->
+                            <!--                        </div>-->
+                        </div>
+                    </div>
+                </form>
+                            <div class="modal" data-backdrop="false" id="divmodal" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <span class="close" onclick="function myClose(){
+                                            document.getElementById('divmodal').style.display='none';
+                                            var olddata=document.getElementById('divimagemodal').lastChild;
+                                            document.getElementById('divimagemodal').removeChild(olddata);
+                                            };myClose();" type="button">X
+                                            </span>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container-fluid nopadding" id="divimagemodal">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+        </t>
+    </template>
+</odoo>

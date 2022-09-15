@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sch_record,access.sch.record,model_sch_record,,1,1,1,1
+access_sch_book,access.sch.book,model_sch_book,,1,1,1,1
+access_sch_teacher,access.sch.teacher,model_sch_teacher,,1,1,1,1
+

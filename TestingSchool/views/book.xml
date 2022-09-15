@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="book_action" model="ir.actions.act_window">
+            <field name="name">Books</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sch.book</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Books
+                </p>
+            </field>
+        </record>
+
+<!--    For Tree View-->
+        <record id="book_data_tree_view" model="ir.ui.view">
+            <field name="name">student.book.data.tree</field>
+            <field name="model">sch.book</field>
+            <field name="arch" type="xml">
+                <tree string="Books">
+                    <field name="id" optional="hide"/>
+                    <field name="book_name" optional="show"/>
+                    <field name="Subject" optional="hide"/>
+                    <field name="Category" optional="show"/>
+                    <field name="product_id" optional="show"/>
+                    <field name="Qty" optional="show"/>
+                    <field name="student_id" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="school_Book_root"
+            name="Library"
+            parent="School_root"
+            action="book_action"
+            sequence="2"/>
+
+</odoo>
+

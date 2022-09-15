@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="stu_list" name="Student List">
+        <t t-call="website.layout">
+          <style>
+            #tbl {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+              margin-top: 10px;
+            }
+
+            #tbl td, #tbl th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+
+            #tbl tr:nth-child(even){background-color: #e6eeff;}
+
+            #tbl tr:hover {background-color: #ddd;}
+
+            #tbl th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #7C7BAD;
+              color: white;
+            }
+           .btn {
+          float: right;
+          background-color: #7C7BAD;
+          border: none;
+          color: white;
+          #padding: 15px 32px;
+          margin-left: 80%;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+
+          cursor: pointer;
+        }
+            </style>
+          <div id="wrap" class="oe_structure oe_empty">
+            <section class="pt32 pb32" data-name="Title">
+              <div class="container">
+                <div class="row form-group form-field">
+                  <div class="col-lg-8 col-md-9">
+                    <h1 >Student Lists</h1>
+                  </div>
+                  <div class="col-lg-2 col-md-3">
+                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="/mit" class="btn btn-primary me-md-3">New</a>
+                  </div>
+                  </div>
+                </div>
+
+                  <span id="o_website_form_result"/>
+
+                <table id="tbl">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Contact</th>
+                    <th>Birthdate</th>
+                    <th>Mail</th>
+                    <th>Phone</th>
+<!--                    <th>School</th>-->
+                    <th>Gender</th>
+                    <th>Status</th>
+<!--                    <th>Attachments</th>-->
+                  </tr>
+                  <t t-foreach="res" t-as="a">
+                    <tr>
+                      <td>
+                        <a t-attf-href="/readById?id={{a.id}}">
+                          <t t-esc="a.id"/>
+                        </a>
+                      </td>
+
+                      <td>
+                         <t t-esc="a.student_name"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.age"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.notes"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.birth_date"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.email"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.mobile"/>
+
+                      </td>
+<!--                      <td>-->
+<!--                         <t t-esc="a.x_school"/>-->
+
+<!--                      </td>-->
+                      <td>
+                         <t t-esc="a.gender"/>
+
+                      </td>
+                      <td>
+                         <t t-esc="a.x_status"/>
+
+                      </td>
+
+                    </tr>
+                  </t>
+                </table>
+              </div>
+            </section>
+          </div>
+        </t>
+    </template>
+
+</odoo>
+
